@@ -1,0 +1,28 @@
+{
+  "name": "frog-gg-noreact",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000f\u0000r\u0000o\u0000g\u0000-\u0000g\u0000g\u0000-\u0000n\u0000o\u0000r\u0000e\u0000a\u0000c\u0000t\u0000\r\u0000 \u0000",
+  "main": "server.js",
+  "dependencies": {
+    "async": "^2.6.0",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frogr/frog-gg-noreact.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frogr/frog-gg-noreact/issues"
+  },
+  "homepage": "https://github.com/frogr/frog-gg-noreact#readme"
+}
