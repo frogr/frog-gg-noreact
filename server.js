@@ -1,8 +1,14 @@
-var express = require('express');
-var server = express();
-var exphbs = require('express-handlebars');
-var request = require('request');
-var async = require('async');
+const express = require('express');
+const server = express();
+const exphbs = require('express-handlebars');
+const request = require('request');
+const async = require('async');
+const LeagueJs = require('leaguejs');
+const fetch = require('node-fetch');
+
+const API_KEY = 'RGAPI-e504135e-08e0-4a0d-b3e6-964615874018'
+
+const api = new LeagueJs(API_KEY);
 
 server.engine('handlebars', exphbs({defaultLayout: 'main'}));
 
@@ -12,13 +18,12 @@ server.set('view engine', 'handlebars');
 server.get('/:summonerId', (req, res) => {
   const { summonerId } = req.params;
   const data = {};
-  const api_key = 'RGAPI-e504135e-08e0-4a0d-b3e6-964615874018';
-  const URL = 'https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/' + summonerId + '?api_key=' + api_key;
-
+  const ACC_DATA_ACC_DATA_URL = 'https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/' + summonerId + '?api_key=' + API_KEY;
+  const RANKS_URL = 'https://na1.api.riotgames.com/lol/league/v3/positions/by-summoner/' + accountId + '?api_key=' + API_KEY;
 
   async.waterfall([
     function(callback) {
-      request(URL, function(err, response, body) {
+      request(ACC_DATA_URL, function(err, response, body) {
         if(!err && response.statusCode == 200) {
           var json = JSON.parse(body);
           console.log(json)
@@ -33,6 +38,9 @@ server.get('/:summonerId', (req, res) => {
           console.log(err);
         }
       });
+    },
+    function (callback) {
+      request()
     }
   ],
   function(err, data) {
