@@ -7,6 +7,8 @@
     "async": "^2.6.0",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
+    "leaguejs": "^1.7.0",
+    "node-fetch": "^1.7.3",
     "request": "^2.83.0"
   },
   "devDependencies": {},
