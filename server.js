@@ -33,7 +33,7 @@ server.get('/:summonerId', (req, res) => {
           data.summonerLevel = json.summonerLevel;
           callback(null, data);
         } else {
-          console.log(err);
+          res.status(200).json({'!E': 'probably entered an invalid summoner.'})
         }
       });
     },
@@ -44,7 +44,7 @@ server.get('/:summonerId', (req, res) => {
           let json = JSON.parse(body);
           console.log("SECOND JSON", json);
           let i = 0
-          if (json[i].queueType !== 'RANKED_SOLO_5x5') {
+          while (json[i].queueType !== 'RANKED_SOLO_5x5') {
             i++
           }
           data.leagueName = json[i].leagueName;
