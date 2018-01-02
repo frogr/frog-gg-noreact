@@ -61,6 +61,19 @@ server.get('/:summonerId', (req, res) => {
           console.log(err);
         }
       });
+    },
+    function (data, callback) {
+      const RCNT_MATCH_URL = 'https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/' + data.accountId + '/recent?api_key=' + API_KEY;
+      request(RCNT_MATCH_URL, (err, res, body) => {
+        console.log("line 68", RCNT_MATCH_URL)
+        if (!err && res.statusCode === 200) {
+          let json = JSON.parse(body);
+          console.log("THIRD JSON", json.matches[0]);
+          console.log('72', json.matches[0].champion)
+            console.log(json.matches[0].champion);
+            fetchChampNameWITHFROGGG(json.matches[0].champion);
+        }
+      })
     }
   ],
   function(err, data) {
@@ -74,6 +87,34 @@ server.get('/:summonerId', (req, res) => {
     });
   });
 });
+
+const fetchChampNameWithRIOT = cID => {
+const url = 'https://na1.api.riotgames.com/lol/static-data/v3/champions/' + cID + '?locale=en_US&api_key=' + API_KEY;
+fetch(url)
+  .then(res => res.json())
+  .then(data => {
+    setTimeout(() => {
+      console.log(data.name)
+    }, 2500)
+    return data.name;
+  })
+  .catch(e => {
+    console.log('!E', e);
+  });
+};
+
+const fetchChampNameWITHFROGGG = cID => {
+  const url = 'https://frog-gg-api.herokuapp.com/' + cID;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.name);
+      return data;
+    })
+    .catch(e => {
+      console.log('!E', e);
+    });
+};
 
 const port = Number(process.env.PORT || 3000);
 server.listen(port, () => {
