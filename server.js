@@ -6,7 +6,7 @@ const async = require('async');
 const LeagueJs = require('leaguejs');
 const fetch = require('node-fetch');
 
-const API_KEY = 'RGAPI-dbacd99f-6cce-44e3-887f-e2a674cc35ce';
+const API_KEY = 'RGAPI-34c9cb99-bc70-4a13-b328-068d7a63236b';
 
 const api = new LeagueJs(API_KEY);
 
