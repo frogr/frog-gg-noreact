@@ -61,20 +61,20 @@ server.get('/:summonerId', (req, res) => {
           console.log(err);
         }
       });
-    },
-    function (data, callback) {
-      const RCNT_MATCH_URL = 'https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/' + data.accountId + '/recent?api_key=' + API_KEY;
-      request(RCNT_MATCH_URL, (err, res, body) => {
-        console.log("line 68", RCNT_MATCH_URL)
-        if (!err && res.statusCode === 200) {
-          let json = JSON.parse(body);
-          console.log("THIRD JSON", json.matches[0]);
-          console.log('72', json.matches[0].champion)
-            console.log(json.matches[0].champion);
-            fetchChampNameWITHFROGGG(json.matches[0].champion);
-        }
-      })
     }
+    // function (data, callback) {
+    //   const RCNT_MATCH_URL = 'https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/' + data.accountId + '/recent?api_key=' + API_KEY;
+    //   request(RCNT_MATCH_URL, (err, res, body) => {
+    //     console.log("line 68", RCNT_MATCH_URL)
+    //     if (!err && res.statusCode === 200) {
+    //       let json = JSON.parse(body);
+    //       console.log("THIRD JSON", json.matches[0]);
+    //       console.log('72', json.matches[0].champion)
+    //         console.log(json.matches[0].champion);
+    //         fetchChampNameWITHFROGGG(json.matches[0].champion);
+    //     }
+    //   })
+    // }
   ],
   function(err, data) {
     if(err) {
