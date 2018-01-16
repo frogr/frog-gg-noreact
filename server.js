@@ -35,9 +35,7 @@ server.get('/:summonerId', (req, res) => {
             data.summonerLevel = json.summonerLevel;
             callback(null, data);
           } else {
-            res
-              .status(200)
-              .json({ '!E': 'probably entered an invalid summoner.' });
+            res.status(200).json(err);
           }
         });
       },
