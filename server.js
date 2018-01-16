@@ -52,23 +52,28 @@ server.get('/:summonerId', (req, res) => {
           API_KEY;
         request(RANKS_URL, (err, res, body) => {
           if (!err && res.statusCode === 200) {
-            console.log('line 54', JSON.parse(body));
             let json = JSON.parse(body);
             console.log('SECOND JSON', json);
-            let i = 0;
-            while (json[i].queueType !== 'RANKED_SOLO_5x5') {
-              i++;
+            if (json.length === 0) {
+              throw new Error(
+                'looks like this user has not placed in the 2018 season yet.'
+              );
+            } else {
+              let i = 0;
+              while (json[i].queueType !== 'RANKED_SOLO_5x5') {
+                i++;
+              }
+              data.leagueName = json[i].leagueName;
+              data.tier = json[i].tier;
+              data.rank = json[i].rank;
+              data.wins = json[i].wins;
+              data.losses = json[i].losses;
+              data.veteran = json[i].veteran;
+              data.inactive = json[i].inactive;
+              data.freshBlood = json[i].freshBlood;
+              data.hotStreak = json[i].hotStreak;
+              callback(null, data);
             }
-            data.leagueName = json[i].leagueName;
-            data.tier = json[i].tier;
-            data.rank = json[i].rank;
-            data.wins = json[i].wins;
-            data.losses = json[i].losses;
-            data.veteran = json[i].veteran;
-            data.inactive = json[i].inactive;
-            data.freshBlood = json[i].freshBlood;
-            data.hotStreak = json[i].hotStreak;
-            callback(null, data);
           } else {
             console.log(err);
           }
