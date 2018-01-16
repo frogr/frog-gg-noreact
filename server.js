@@ -4,12 +4,9 @@ require('dotenv').config();
 const exphbs = require('express-handlebars');
 const request = require('request');
 const async = require('async');
-const LeagueJs = require('leaguejs');
 const fetch = require('node-fetch');
 
 const API_KEY = process.env.API_KEY;
-
-const api = new LeagueJs(API_KEY);
 
 server.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 
