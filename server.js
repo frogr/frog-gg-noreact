@@ -25,15 +25,17 @@ server.get('/:summonerId', (req, res) => {
     [
       function(callback) {
         request(ACC_DATA_URL, function(err, response, body) {
-          if (!err && response.statusCode == 200) {
-            let json = JSON.parse(body);
-            console.log('FIRST JSON', json);
+          let json = JSON.parse(body);
+          console.log(json);
+          if (json.status == undefined) {
             data.id = json.id;
             data.name = json.name;
             data.accountId = json.accountId;
             data.profileIconId = json.profileIconId;
             data.summonerLevel = json.summonerLevel;
             callback(null, data);
+          } else {
+            res.json({ error: '404 wrong summoner name try again bud' });
           }
         });
       },
@@ -43,14 +45,12 @@ server.get('/:summonerId', (req, res) => {
           data.id +
           '?api_key=' +
           API_KEY;
-        request(RANKS_URL, (err, res, body) => {
-          if (!err && res.statusCode === 200) {
+        request(RANKS_URL, (err, response, body) => {
+          if (!err) {
             let json = JSON.parse(body);
             console.log('SECOND JSON', json);
             if (json.length === 0) {
-              throw new Error(
-                'looks like this user has not placed in the 2018 season yet.'
-              );
+              res.json({ error: 'hasnt placed in 2018 yet brother' });
             } else {
               let i = 0;
               while (json[i].queueType !== 'RANKED_SOLO_5x5') {
