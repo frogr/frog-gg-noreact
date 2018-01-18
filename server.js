@@ -35,6 +35,7 @@ server.get('/:summonerId', (req, res) => {
             data.summonerLevel = json.summonerLevel;
             callback(null, data);
           } else {
+            console.log(err);
             res.status(200).json(err);
           }
         });
