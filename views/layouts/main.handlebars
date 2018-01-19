@@ -7,13 +7,13 @@
 </head>
 <body>
   <div class="container">
-    {{info.name}} has: <br>
+    {{info.name}} <br>
+        summoner level {{info.summonerLevel}} <br>
+        <img src="http://opgg-static.akamaized.net/images/profile_icons/profileIcon{{info.profileIconId}}.jpg" class="profilePicture" alt="{{info.profileIconId}}"> <br>
         ID: {{info.id}} <br>
-        account: {{info.accountId}} <br>
-        profile icon: {{info.profileIconId}} <br>
-        level: {{info.summonerLevel}} <br>
+        account ID: {{info.accountId}} <br>
         <hr>
-    {{info.name}} ranked SOLO Q information: <br>
+    {{info.name}} ranked solo info: <br>
       {{#if info.b}}
       <img src="http://opgg-static.akamaized.net/images/medals/bronze_1.png" alt="bronze_1"><br>
       {{/if}}
@@ -38,18 +38,17 @@
       rank: {{info.tier}} {{info.rank}} <br>
       wins: {{info.wins}} <br>
       losses: {{info.losses}} <br>
-      veteran: {{info.veteran}} <br>
-      {{#if info.veteran}}
-      <img src="https://imgur.com/RcMucng.png" alt="VETERAN"> <br>
-      {{/if}}
-      recruit: {{info.recruit}} <br>
-      {{#if info.recruit}}
-      <img src="https://imgur.com/sG5gq9o.png" alt="RECRUIT"> <br>
-      {{/if}}
-      hot streak: {{info.hotStreak}} <br>
-      {{#if info.hotStreak}}
-      <img src="https://imgur.com/mSJEVcP.png" alt="HOT_STREAK"> <br>
-      {{/if}}
+      <div class="rankedAttributes">
+        {{#if info.veteran}}
+        <img src="https://imgur.com/RcMucng.png" alt="VETERAN"> <br>
+        {{/if}}
+        {{#if info.recruit}}
+        <img src="https://imgur.com/sG5gq9o.png" alt="RECRUIT"> <br>
+        {{/if}}
+        {{#if info.hotStreak}}
+        <img src="https://imgur.com/mSJEVcP.png" alt="HOT_STREAK"> <br>
+        {{/if}}
+      </div>
   </div>
 </body>
 </html>

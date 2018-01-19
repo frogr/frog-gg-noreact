@@ -1,12 +1,20 @@
 body {
   text-align: center;
 }
+hr {
+  width: 25%;
+}
 .container {
   padding: 2%;
   margin: 5% auto;
   width: 25%;
   border: 1px solid black;
 }
-hr {
-  width: 25%;
+.profilePicture {
+  height: auto;
+  width: 30%;
+  border-radius: 15%;
+}
+.rankedAttributes {
+  display: inline-flex;
 }
