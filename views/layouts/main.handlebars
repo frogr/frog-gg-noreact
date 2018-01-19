@@ -39,7 +39,16 @@
     wins: {{info.wins}} <br>
     losses: {{info.losses}} <br>
     veteran: {{info.veteran}} <br>
-    fresh blood: {{info.freshBlood}} <br>
+    {{#if info.veteran}}
+    <img src="https://imgur.com/RcMucng.png" alt="VETERAN"> <br>
+    {{/if}}
+    recruit: {{info.recruit}} <br>
+    {{#if info.recruit}}
+    <img src="https://imgur.com/sG5gq9o.png" alt="RECRUIT"> <br>
+    {{/if}}
     hot streak: {{info.hotStreak}} <br>
+    {{#if info.hotStreak}}
+    <img src="https://imgur.com/mSJEVcP.png" alt="HOT_STREAK"> <br>
+    {{/if}}
 </body>
 </html>

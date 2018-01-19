@@ -94,7 +94,7 @@ server.get('/:summonerId', (req, res) => {
               data.losses = json[i].losses;
               data.veteran = json[i].veteran;
               data.inactive = json[i].inactive;
-              data.freshBlood = json[i].freshBlood;
+              data.recruit = json[i].freshBlood;
               data.hotStreak = json[i].hotStreak;
               callback(null, data);
             }
