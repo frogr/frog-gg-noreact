@@ -11,7 +11,7 @@ const API_KEY = process.env.API_KEY;
 server.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 
 server.set('view engine', 'handlebars');
-
+server.use(express.static('public'));
 server.get('/:summonerId', (req, res) => {
   const { summonerId } = req.params;
   const data = {};

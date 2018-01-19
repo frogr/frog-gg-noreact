@@ -1,0 +1,12 @@
+body {
+  text-align: center;
+}
+.container {
+  padding: 2%;
+  margin: 5% auto;
+  width: 25%;
+  border: 1px solid black;
+}
+hr {
+  width: 25%;
+}

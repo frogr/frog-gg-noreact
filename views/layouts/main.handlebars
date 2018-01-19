@@ -3,52 +3,53 @@
 <head>
     <meta charset="utf-8">
     <title>frog gg noreact</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  {{info.name}} has: <br>
-      ID: {{info.id}} <br>
-      account: {{info.accountId}} <br>
-      profile icon: {{info.profileIconId}} <br>
-      level: {{info.summonerLevel}} <br>
-      <hr>
-  {{info.name}} ranked SOLO Q information: <br>
-    inactive: {{info.inactive}} <br>
-    rank: {{info.tier}} <br>
-    tier: {{info.rank}} <br>
-    {{#if info.b}}
-    <img src="http://opgg-static.akamaized.net/images/medals/bronze_1.png" alt="bronze_1"><br>
-    {{/if}}
-    {{#if info.s}}
-    <img src="http://opgg-static.akamaized.net/images/medals/silver_1.png" alt="silver_1"> <br>
-    {{/if}}
-    {{#if info.g}}
-    <img src="http://opgg-static.akamaized.net/images/medals/gold_1.png" alt="gold_1"> <br>
-    {{/if}}
-    {{#if info.p}}
-    <img src="http://opgg-static.akamaized.net/images/medals/platinum_1.png" alt="platinum_1"> <br>
-    {{/if}}
-    {{#if info.d}}
-    <img src="http://opgg-static.akamaized.net/images/medals/diamond_1.png" alt="diamond_1"> <br>
-    {{/if}}
-    {{#if info.m}}
-    <img src="http://opgg-static.akamaized.net/images/medals/master_1.png" alt="master_1"> <br>
-    {{/if}}
-    {{#if info.c}}
-    <img src="http://opgg-static.akamaized.net/images/medals/challenger_1.png" alt="challenger_1"> <br>
-    {{/if}}
-    wins: {{info.wins}} <br>
-    losses: {{info.losses}} <br>
-    veteran: {{info.veteran}} <br>
-    {{#if info.veteran}}
-    <img src="https://imgur.com/RcMucng.png" alt="VETERAN"> <br>
-    {{/if}}
-    recruit: {{info.recruit}} <br>
-    {{#if info.recruit}}
-    <img src="https://imgur.com/sG5gq9o.png" alt="RECRUIT"> <br>
-    {{/if}}
-    hot streak: {{info.hotStreak}} <br>
-    {{#if info.hotStreak}}
-    <img src="https://imgur.com/mSJEVcP.png" alt="HOT_STREAK"> <br>
-    {{/if}}
+  <div class="container">
+    {{info.name}} has: <br>
+        ID: {{info.id}} <br>
+        account: {{info.accountId}} <br>
+        profile icon: {{info.profileIconId}} <br>
+        level: {{info.summonerLevel}} <br>
+        <hr>
+    {{info.name}} ranked SOLO Q information: <br>
+      {{#if info.b}}
+      <img src="http://opgg-static.akamaized.net/images/medals/bronze_1.png" alt="bronze_1"><br>
+      {{/if}}
+      {{#if info.s}}
+      <img src="http://opgg-static.akamaized.net/images/medals/silver_1.png" alt="silver_1"> <br>
+      {{/if}}
+      {{#if info.g}}
+      <img src="http://opgg-static.akamaized.net/images/medals/gold_1.png" alt="gold_1"> <br>
+      {{/if}}
+      {{#if info.p}}
+      <img src="http://opgg-static.akamaized.net/images/medals/platinum_1.png" alt="platinum_1"> <br>
+      {{/if}}
+      {{#if info.d}}
+      <img src="http://opgg-static.akamaized.net/images/medals/diamond_1.png" alt="diamond_1"> <br>
+      {{/if}}
+      {{#if info.m}}
+      <img src="http://opgg-static.akamaized.net/images/medals/master_1.png" alt="master_1"> <br>
+      {{/if}}
+      {{#if info.c}}
+      <img src="http://opgg-static.akamaized.net/images/medals/challenger_1.png" alt="challenger_1"> <br>
+      {{/if}}
+      rank: {{info.tier}} {{info.rank}} <br>
+      wins: {{info.wins}} <br>
+      losses: {{info.losses}} <br>
+      veteran: {{info.veteran}} <br>
+      {{#if info.veteran}}
+      <img src="https://imgur.com/RcMucng.png" alt="VETERAN"> <br>
+      {{/if}}
+      recruit: {{info.recruit}} <br>
+      {{#if info.recruit}}
+      <img src="https://imgur.com/sG5gq9o.png" alt="RECRUIT"> <br>
+      {{/if}}
+      hot streak: {{info.hotStreak}} <br>
+      {{#if info.hotStreak}}
+      <img src="https://imgur.com/mSJEVcP.png" alt="HOT_STREAK"> <br>
+      {{/if}}
+  </div>
 </body>
 </html>
