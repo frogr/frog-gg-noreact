@@ -56,9 +56,40 @@ server.get('/:summonerId', (req, res) => {
               while (json[i].queueType !== 'RANKED_SOLO_5x5') {
                 i++;
               }
+              data.b = false;
+              data.s = false;
+              data.g = false;
+              data.p = false;
+              data.d = false;
+              data.m = false;
+              data.c = false;
               data.leagueName = json[i].leagueName;
               data.tier = json[i].tier;
               data.rank = json[i].rank;
+              switch (data.tier) {
+                case 'BRONZE':
+                  data.b = true;
+                  break;
+                case 'SILVER':
+                  data.s = true;
+                  break;
+                case 'GOLD':
+                  data.g = true;
+                  break;
+                case 'PLATINUM':
+                  data.p = true;
+                  break;
+                case 'DIAMOND':
+                  data.d = true;
+                  break;
+                case 'MASTER':
+                  data.m = true;
+                  break;
+                case 'CHALLENGER':
+                  data.b = true;
+                  break;
+              }
+              console.log('LINE 92 DATA', data);
               data.wins = json[i].wins;
               data.losses = json[i].losses;
               data.veteran = json[i].veteran;
