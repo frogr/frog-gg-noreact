@@ -7,11 +7,14 @@ const async = require('async');
 const fetch = require('node-fetch');
 
 const API_KEY = process.env.API_KEY;
+// server.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 
-server.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-
-server.set('view engine', 'handlebars');
+server.set('view engine', 'ejs');
 server.use(express.static('public'));
+
+server.get('/', (req, res) => {
+  res.render('search');
+});
 server.get('/:summonerId', (req, res) => {
   const { summonerId } = req.params;
   const data = {};
@@ -96,6 +99,7 @@ server.get('/:summonerId', (req, res) => {
               data.inactive = json[i].inactive;
               data.recruit = json[i].freshBlood;
               data.hotStreak = json[i].hotStreak;
+              console.log(data);
               callback(null, data);
             }
           } else {
@@ -103,56 +107,18 @@ server.get('/:summonerId', (req, res) => {
           }
         });
       }
-      // function(data, callback) {
-      //   const RCNT_MATCH_URL =
-      //     'https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/' +
-      //     data.accountId +
-      //     '/recent?api_key=' +
-      //     API_KEY;
-      //   request(RCNT_MATCH_URL, (err, res, body) => {
-      //     console.log('line 68', RCNT_MATCH_URL);
-      //     if (!err && res.statusCode === 200) {
-      //       let json = JSON.parse(body);
-      //       console.log('THIRD JSON', json.matches[0]);
-      //       for (let m = 0; m < json.matches.length; m++) {
-      //         fetchChampNameWITHFROGGG(json.matches[m].champion);
-      //       }
-      //     }
-      //   });
-      // }
     ],
     function(err, data) {
       if (err) {
         console.log(err);
         return;
       }
-
-      res.render('index', {
-        info: data
-      });
+      res.render('home', { data });
     }
   );
 });
 
-const fetchChampNameWithRIOT = cID => {
-  const url =
-    'https://na1.api.riotgames.com/lol/static-data/v3/champions/' +
-    cID +
-    '?locale=en_US&api_key=' +
-    API_KEY;
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      setTimeout(() => {
-        console.log(data.name);
-      }, 2500);
-      return data.name;
-    })
-    .catch(e => {
-      console.log('!E', e);
-    });
-};
-
+// NOT USED, will be implemented with match history!
 const fetchChampNameWITHFROGGG = cID => {
   const url = 'https://frog-gg-api.herokuapp.com/' + cID;
   fetch(url)
@@ -172,4 +138,3 @@ server.listen(port, () => {
 });
 
 // TODO: ability to compare profiles next to each other
-// TODO: app bork when no results found

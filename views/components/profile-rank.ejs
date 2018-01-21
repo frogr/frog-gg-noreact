@@ -1,0 +1,29 @@
+<%= data.name %> ranked solo data: <br>
+  <% if (data.b === true) { %>
+  <img src="http://opgg-static.akamaized.net/images/medals/bronze_1.png" alt="bronze_1"><br>
+  <% } else if (data.s === true) { %>
+  <img src="http://opgg-static.akamaized.net/images/medals/silver_1.png" alt="silver_1"> <br>
+  <% } else if (data.g === true) { %>
+  <img src="http://opgg-static.akamaized.net/images/medals/gold_1.png" alt="gold_1"> <br>
+  <% } else if (data.p === true) { %>
+  <% } else if (data.d === true) { %>
+  <img src="http://opgg-static.akamaized.net/images/medals/diamond_1.png" alt="diamond_1"> <br>
+  <% } else if (data.m === true) { %>
+  <img src="http://opgg-static.akamaized.net/images/medals/master_1.png" alt="master_1"> <br>
+  <% } else { %>
+  <img src="http://opgg-static.akamaized.net/images/medals/challenger_1.png" alt="challenger_1"> <br>
+  <% } %>
+  rank: <%= data.tier %> <%= data.rank %> <br>
+  wins: <%= data.wins %> <br>
+  losses: <%= data.losses %> <br>
+  <div class="rankedAttributes">
+    <% if (data.veteran) { %>
+    <img src="https://imgur.com/RcMucng.png" alt="VETERAN"> <br>
+    <% } %>
+    <% if (data.recruit) { %>
+    <img src="https://imgur.com/sG5gq9o.png" alt="RECRUIT"> <br>
+    <% } %>
+    <% if (data.hotStreak) { %>
+    <img src="https://imgur.com/mSJEVcP.png" alt="HOT_STREAK"> <br>
+    <% } %>
+  </div>

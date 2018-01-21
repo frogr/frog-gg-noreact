@@ -7,45 +7,45 @@
 </head>
 <body>
   <div class="container">
-    {{info.name}} <br>
-        summoner level {{info.summonerLevel}} <br>
-        <img src="http://opgg-static.akamaized.net/images/profile_icons/profileIcon{{info.profileIconId}}.jpg" class="profilePicture" alt="{{info.profileIconId}}"> <br>
-        ID: {{info.id}} <br>
-        account ID: {{info.accountId}} <br>
+    {{data.name}} <br>
+        summoner level {{data.summonerLevel}} <br>
+        <img src="http://opgg-static.akamaized.net/images/profile_icons/profileIcon{{data.profileIconId}}.jpg" class="profilePicture" alt="{{data.profileIconId}}"> <br>
+        ID: {{data.id}} <br>
+        account ID: {{data.accountId}} <br>
         <hr>
-    {{info.name}} ranked solo info: <br>
-      {{#if info.b}}
+    {{data.name}} ranked solo data: <br>
+      {{#if data.b}}
       <img src="http://opgg-static.akamaized.net/images/medals/bronze_1.png" alt="bronze_1"><br>
       {{/if}}
-      {{#if info.s}}
+      {{#if data.s}}
       <img src="http://opgg-static.akamaized.net/images/medals/silver_1.png" alt="silver_1"> <br>
       {{/if}}
-      {{#if info.g}}
+      {{#if data.g}}
       <img src="http://opgg-static.akamaized.net/images/medals/gold_1.png" alt="gold_1"> <br>
       {{/if}}
-      {{#if info.p}}
+      {{#if data.p}}
       <img src="http://opgg-static.akamaized.net/images/medals/platinum_1.png" alt="platinum_1"> <br>
       {{/if}}
-      {{#if info.d}}
+      {{#if data.d}}
       <img src="http://opgg-static.akamaized.net/images/medals/diamond_1.png" alt="diamond_1"> <br>
       {{/if}}
-      {{#if info.m}}
+      {{#if data.m}}
       <img src="http://opgg-static.akamaized.net/images/medals/master_1.png" alt="master_1"> <br>
       {{/if}}
-      {{#if info.c}}
+      {{#if data.c}}
       <img src="http://opgg-static.akamaized.net/images/medals/challenger_1.png" alt="challenger_1"> <br>
       {{/if}}
-      rank: {{info.tier}} {{info.rank}} <br>
-      wins: {{info.wins}} <br>
-      losses: {{info.losses}} <br>
+      rank: {{data.tier}} {{data.rank}} <br>
+      wins: {{data.wins}} <br>
+      losses: {{data.losses}} <br>
       <div class="rankedAttributes">
-        {{#if info.veteran}}
+        {{#if data.veteran}}
         <img src="https://imgur.com/RcMucng.png" alt="VETERAN"> <br>
         {{/if}}
-        {{#if info.recruit}}
+        {{#if data.recruit}}
         <img src="https://imgur.com/sG5gq9o.png" alt="RECRUIT"> <br>
         {{/if}}
-        {{#if info.hotStreak}}
+        {{#if data.hotStreak}}
         <img src="https://imgur.com/mSJEVcP.png" alt="HOT_STREAK"> <br>
         {{/if}}
       </div>
