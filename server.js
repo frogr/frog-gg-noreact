@@ -7,13 +7,13 @@ const async = require('async');
 const fetch = require('node-fetch');
 
 const API_KEY = process.env.API_KEY;
-// server.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-
 server.set('view engine', 'ejs');
 server.use(express.static('public'));
 
 server.get('/', (req, res) => {
-  res.render('search');
+  res.send(
+    'Add a summoner name to the end of this URL (e.g. https://frog-gg.herokuapp.com/imaqtpie)'
+  );
 });
 server.get('/:summonerId', (req, res) => {
   const { summonerId } = req.params;
