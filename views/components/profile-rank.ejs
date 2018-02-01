@@ -6,11 +6,12 @@
   <% } else if (data.g === true) { %>
   <img src="http://opgg-static.akamaized.net/images/medals/gold_1.png" alt="gold_1"> <br>
   <% } else if (data.p === true) { %>
+    <img src="http://opgg-static.akamaized.net/images/medals/platinum_1.png" alt="platinum_1"> <br>
   <% } else if (data.d === true) { %>
   <img src="http://opgg-static.akamaized.net/images/medals/diamond_1.png" alt="diamond_1"> <br>
   <% } else if (data.m === true) { %>
   <img src="http://opgg-static.akamaized.net/images/medals/master_1.png" alt="master_1"> <br>
-  <% } else { %>
+  <% } else if (data.c === true) { %>
   <img src="http://opgg-static.akamaized.net/images/medals/challenger_1.png" alt="challenger_1"> <br>
   <% } %>
   rank: <%= data.tier %> <%= data.rank %> <br>

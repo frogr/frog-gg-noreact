@@ -89,7 +89,7 @@ server.get('/:summonerId', (req, res) => {
                   data.m = true;
                   break;
                 case 'CHALLENGER':
-                  data.b = true;
+                  data.c = true;
                   break;
               }
               console.log('LINE 92 DATA', data);
